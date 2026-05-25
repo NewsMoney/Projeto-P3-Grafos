@@ -105,7 +105,7 @@ projeto_teoria_grafos/
 ├── definicao_e_modelagem.md
 ├── RELATORIO_PROJETO.md
 ├── README.md
-└── assets/
+└── images/Imagens do projeto
 ```
 
 ---
