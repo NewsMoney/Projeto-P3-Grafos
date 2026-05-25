@@ -18,12 +18,12 @@ O projeto foi desenvolvido como atividade acadêmica da disciplina de Teoria dos
 
 O sistema foi desenvolvido com os seguintes objetivos:
 
-- representar uma rede logística utilizando grafos;
-- determinar caminhos mínimos entre pontos da rede;
-- otimizar rotas de entrega;
-- analisar capacidades e gargalos da infraestrutura;
-- aplicar algoritmos clássicos estudados na disciplina;
-- demonstrar aplicações práticas da Teoria dos Grafos.
+* representar uma rede logística utilizando grafos;
+* determinar caminhos mínimos entre pontos da rede;
+* otimizar rotas de entrega;
+* analisar capacidades e gargalos da infraestrutura;
+* aplicar algoritmos clássicos estudados na disciplina;
+* demonstrar aplicações práticas da Teoria dos Grafos.
 
 ---
 
@@ -37,9 +37,9 @@ Utilizado para determinar o caminho mínimo entre dois vértices do grafo.
 
 ### Aplicações
 
-- cálculo da menor distância;
-- definição de rotas eficientes;
-- minimização de custos de deslocamento.
+* cálculo da menor distância;
+* definição de rotas eficientes;
+* minimização de custos de deslocamento.
 
 ### Complexidade
 
@@ -55,9 +55,9 @@ Aplicada ao Problema do Caixeiro Viajante para otimização de rotas com múltip
 
 ### Aplicações
 
-- planejamento de sequência de entregas;
-- otimização logística;
-- redução de distância percorrida.
+* planejamento de sequência de entregas;
+* otimização logística;
+* redução de distância percorrida.
 
 ### Característica
 
@@ -71,9 +71,9 @@ Utilizado para cálculo de fluxo máximo em redes.
 
 ### Aplicações
 
-- identificação de gargalos;
-- análise da capacidade da rede;
-- avaliação de regiões críticas.
+* identificação de gargalos;
+* análise da capacidade da rede;
+* avaliação de regiões críticas.
 
 ### Complexidade
 
@@ -114,8 +114,8 @@ projeto_teoria_grafos/
 
 Para execução da aplicação é necessário:
 
-- Python 3.7 ou superior;
-- sistema operacional Linux, Windows ou macOS.
+* Python 3.7 ou superior;
+* sistema operacional Linux, Windows ou macOS.
 
 O projeto não utiliza dependências externas.
 
@@ -175,9 +175,9 @@ deposito_central coleta_norte_2 18
 
 Cada aresta contém:
 
-- vértice de origem;
-- vértice de destino;
-- peso associado.
+* vértice de origem;
+* vértice de destino;
+* peso associado.
 
 ---
 
@@ -191,16 +191,16 @@ G = (V, E)
 
 Onde:
 
-- $V$ representa o conjunto de vértices;
-- $E$ representa o conjunto de arestas.
+* $V$ representa o conjunto de vértices;
+* $E$ representa o conjunto de arestas.
 
 Os vértices representam:
 
-- depósito central;
-- pontos de coleta;
-- pontos de entrega;
-- centros de distribuição;
-- cruzamentos e conexões urbanas.
+* depósito central;
+* pontos de coleta;
+* pontos de entrega;
+* centros de distribuição;
+* cruzamentos e conexões urbanas.
 
 As arestas representam conexões entre diferentes regiões da malha urbana.
 
@@ -210,13 +210,13 @@ As arestas representam conexões entre diferentes regiões da malha urbana.
 
 O projeto pode ser expandido futuramente com:
 
-- algoritmo A\*;
-- algoritmo de Bellman-Ford;
-- visualização gráfica;
-- integração com APIs de mapas;
-- análise de centralidade;
-- coloração de grafos;
-- análise dinâmica de tráfego.
+* algoritmo A*;
+* algoritmo de Bellman-Ford;
+* visualização gráfica;
+* integração com APIs de mapas;
+* análise de centralidade;
+* coloração de grafos;
+* análise dinâmica de tráfego.
 
 ---
 
@@ -241,4 +241,3 @@ Este projeto possui finalidade exclusivamente acadêmica e educacional.
 # Última Atualização
 
 25 de maio de 2026.
-
