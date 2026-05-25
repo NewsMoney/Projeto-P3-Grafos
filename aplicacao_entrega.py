@@ -3,6 +3,8 @@ Aplicação de Otimização Logística de Entrega de Encomendas
 Disciplina: Teoria dos Grafos (2026/1)
 Universidade Presbiteriana Mackenzie
 
+Aluno: Milton Almeida Leoncio | RA: 10416764
+
 Técnicas de Teoria dos Grafos Aplicadas:
 1. Caminhos Mínimos (Algoritmo de Dijkstra)
 2. Problema do Caixeiro Viajante (Heurística do Vizinho Mais Próximo)
@@ -12,7 +14,6 @@ Técnicas de Teoria dos Grafos Aplicadas:
 import heapq
 import sys
 from collections import defaultdict, deque
-from typing import Dict, List, Tuple, Set
 
 class GrafoEntrega:
     """Classe que representa o grafo de entrega de encomendas."""
@@ -215,21 +216,114 @@ class GrafoEntrega:
         
         return fluxo_maximo
     
+    def verificar_conexidade(self):
+        """Verifica se o grafo é conexo (considerando o grafo não orientado subjacente)."""
+        if not self.vertices:
+            return True
+        
+        # Criar lista de adjacência não orientada para teste de conexidade
+        adj_nao_orientada = defaultdict(set)
+        for u in self.vertices:
+            for v, _ in self.arestas[u]:
+                adj_nao_orientada[u].add(v)
+                adj_nao_orientada[v].add(u)
+        
+        inicio = next(iter(self.vertices))
+        visitados = {inicio}
+        fila = deque([inicio])
+        
+        while fila:
+            u = fila.popleft()
+            for v in adj_nao_orientada[u]:
+                if v not in visitados:
+                    visitados.add(v)
+                    fila.append(v)
+        
+        return len(visitados) == len(self.vertices)
+
+    def verificar_euleriano(self):
+        """
+        Verifica se o grafo é Euleriano, Semi-Euleriano ou não Euleriano.
+        Baseado no grau dos vértices (grafo não orientado subjacente).
+        """
+        if not self.verificar_conexidade():
+            return "Não Euleriano (Grafo Desconexo)"
+        
+        # Calcular graus no grafo não orientado subjacente
+        graus = defaultdict(int)
+        for u in self.vertices:
+            for v, _ in self.arestas[u]:
+                graus[u] += 1
+                graus[v] += 1
+        
+        impares = 0
+        for v in self.vertices:
+            if graus[v] % 2 != 0:
+                impares += 1
+        
+        if impares == 0:
+            return "Euleriano (Possui Ciclo Euleriano)"
+        elif impares == 2:
+            return "Semi-Euleriano (Possui Caminho Euleriano)"
+        else:
+            return f"Não Euleriano ({impares} vértices de grau ímpar)"
+
+    def coloracao_vertices(self):
+        """
+        Algoritmo de coloração sequencial (heurística).
+        Retorna: (número_cromático, dicionário_de_cores)
+        """
+        if not self.vertices:
+            return 0, {}
+            
+        # Ordenar vértices pelo grau (heurística de maior grau primeiro)
+        adj_nao_orientada = defaultdict(set)
+        for u in self.vertices:
+            for v, _ in self.arestas[u]:
+                adj_nao_orientada[u].add(v)
+                adj_nao_orientada[v].add(u)
+                
+        vertices_ordenados = sorted(list(self.vertices), 
+                                   key=lambda v: len(adj_nao_orientada[v]), 
+                                   reverse=True)
+        
+        resultado = {}
+        
+        for u in vertices_ordenados:
+            cores_vizinhos = {resultado[v] for v in adj_nao_orientada[u] if v in resultado}
+            
+            cor = 1
+            while cor in cores_vizinhos:
+                cor += 1
+            
+            resultado[u] = cor
+            
+        num_cromatico = max(resultado.values()) if resultado else 0
+        return num_cromatico, resultado
+
     def obter_estatisticas(self):
         """Retorna estatísticas do grafo."""
         num_vertices = len(self.vertices)
         num_arestas = sum(len(adj) for adj in self.arestas.values())
         
-        # Calcular graus
-        graus = {v: len(self.arestas[v]) for v in self.vertices}
-        grau_medio = num_arestas / num_vertices if num_vertices > 0 else 0
-        grau_maximo = max(graus.values()) if graus else 0
+        # Calcular graus (orientado)
+        graus_saida = {v: len(self.arestas[v]) for v in self.vertices}
+        graus_entrada = defaultdict(int)
+        for u in self.arestas:
+            for v, _ in self.arestas[u]:
+                graus_entrada[v] += 1
+        
+        grau_max_saida = max(graus_saida.values()) if graus_saida else 0
+        grau_max_entrada = max(graus_entrada.values()) if graus_entrada else 0
         
         return {
             'num_vertices': num_vertices,
             'num_arestas': num_arestas,
-            'grau_medio': grau_medio,
-            'grau_maximo': grau_maximo
+            'grau_medio': num_arestas / num_vertices if num_vertices > 0 else 0,
+            'grau_max_saida': grau_max_saida,
+            'grau_max_entrada': grau_max_entrada,
+            'conexo': self.verificar_conexidade(),
+            'euleriano': self.verificar_euleriano()
         }
     
     def listar_vertices(self):
@@ -244,12 +338,13 @@ def exibir_menu():
     print("Teoria dos Grafos - Universidade Presbiteriana Mackenzie")
     print("="*60)
     print("\n1. Carregar grafo do arquivo")
-    print("2. Exibir estatísticas do grafo")
+    print("2. Exibir estatísticas e Análise Estrutural")
     print("3. Encontrar caminho mínimo (Dijkstra)")
     print("4. Otimizar rota de entrega (Vizinho Mais Próximo)")
     print("5. Calcular fluxo máximo (Ford-Fulkerson)")
-    print("6. Listar todos os vértices")
-    print("7. Sair")
+    print("6. Realizar Coloração de Vértices")
+    print("7. Listar todos os vértices")
+    print("8. Sair")
     print("-"*60)
 
 
@@ -274,12 +369,15 @@ def main():
             else:
                 stats = grafo.obter_estatisticas()
                 print("\n" + "="*60)
-                print("ESTATÍSTICAS DO GRAFO")
+                print("ESTATÍSTICAS E ANÁLISE ESTRUTURAL")
                 print("="*60)
                 print(f"Número de vértices: {stats['num_vertices']}")
                 print(f"Número de arestas: {stats['num_arestas']}")
                 print(f"Grau médio: {stats['grau_medio']:.2f}")
-                print(f"Grau máximo: {stats['grau_maximo']}")
+                print(f"Grau máximo de saída: {stats['grau_max_saida']}")
+                print(f"Grau máximo de entrada: {stats['grau_max_entrada']}")
+                print(f"Grafo Conexo: {'Sim' if stats['conexo'] else 'Não'}")
+                print(f"Classificação Euleriana: {stats['euleriano']}")
                 print("="*60)
         
         elif opcao == '3':
@@ -345,6 +443,26 @@ def main():
             if not carregado:
                 print("✗ Erro: Grafo não carregado. Carregue o grafo primeiro (opção 1).")
             else:
+                num_cromatico, cores = grafo.coloracao_vertices()
+                print("\n" + "="*60)
+                print("COLORAÇÃO DE VÉRTICES (HEURÍSTICA SEQUENCIAL)")
+                print("="*60)
+                print(f"Número Cromático Estimado (X(G)): {num_cromatico}")
+                print("\nPartições de Cores (Amostra):")
+                # Agrupar por cor para mostrar partições
+                particoes = defaultdict(list)
+                for v, cor in cores.items():
+                    particoes[cor].append(v)
+                
+                for cor in sorted(particoes.keys()):
+                    membros = particoes[cor]
+                    print(f"Cor {cor}: {len(membros)} vértices ({', '.join(membros[:3])}...)")
+                print("="*60)
+
+        elif opcao == '7':
+            if not carregado:
+                print("✗ Erro: Grafo não carregado. Carregue o grafo primeiro (opção 1).")
+            else:
                 vertices = grafo.listar_vertices()
                 print("\n" + "="*60)
                 print("LISTA DE VÉRTICES DO GRAFO")
@@ -354,7 +472,7 @@ def main():
                     print(f"{i:3d}. {v}")
                 print("="*60)
         
-        elif opcao == '7':
+        elif opcao == '8':
             print("\nEncerrando a aplicação. Até logo!")
             sys.exit(0)
         
