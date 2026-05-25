@@ -2,36 +2,39 @@
 
 # 1. Definição do Problema Real
 
-O problema abordado neste projeto consiste na otimização logística de entrega de encomendas em uma área metropolitana. Empresas de transporte e distribuição enfrentam diariamente desafios relacionados ao planejamento eficiente de rotas, redução de custos operacionais e minimização do tempo de entrega.
+O presente projeto aborda o problema de otimização logística de entrega de encomendas em uma área metropolitana, considerando aspectos relacionados ao planejamento de rotas, distribuição urbana e análise da capacidade da infraestrutura logística.
 
-A aplicação desenvolvida busca representar computacionalmente uma rede logística urbana, permitindo analisar trajetos, capacidades da infraestrutura e eficiência operacional por meio de técnicas de Teoria dos Grafos.
+Empresas de transporte e entrega enfrentam desafios constantes relacionados à redução de custos operacionais, diminuição do tempo de entrega e melhoria da eficiência da malha logística. Nesse contexto, técnicas de Teoria dos Grafos podem ser utilizadas para representar e analisar redes urbanas complexas.
 
-O objetivo principal consiste em minimizar o custo total das entregas, considerando fatores como:
-
-* distância percorrida;
-* tempo estimado de deslocamento;
-* conectividade da malha viária;
-* capacidade operacional da rede;
-* eficiência das rotas de coleta e entrega.
+O objetivo principal da aplicação consiste em determinar rotas eficientes para coleta e entrega de encomendas, minimizando custos de deslocamento e identificando gargalos da rede.
 
 ---
 
-## 1.1 Cenário do Problema
+## 1.1 Cenário Modelado
 
-O cenário modelado contempla:
+A rede logística desenvolvida representa uma estrutura urbana dividida em diferentes regiões da cidade:
 
-* um depósito central responsável pelo despacho das encomendas;
-* pontos de coleta distribuídos em diferentes regiões;
-* pontos de entrega localizados em áreas urbanas distintas;
-* centros de distribuição secundários;
-* cruzamentos e conexões estratégicas da malha viária.
+* norte;
+* sul;
+* leste;
+* oeste;
+* centro.
 
-A rede logística foi modelada utilizando:
+O sistema modelado contempla:
 
-* 73 vértices;
-* 219 arestas direcionadas e ponderadas.
+* 1 depósito central;
+* 25 pontos de coleta;
+* 30 pontos de entrega;
+* centros de distribuição regionais;
+* cruzamentos estratégicos;
+* pontos de conexão urbana.
 
-Os pesos das arestas representam custos associados ao deslocamento, como tempo médio de percurso ou distância estimada.
+A modelagem totaliza:
+
+* **73 vértices**
+* **219 arestas direcionadas e ponderadas**
+
+As arestas representam conexões viárias entre diferentes regiões da cidade, enquanto os pesos representam custos de deslocamento associados ao trajeto.
 
 ---
 
@@ -48,27 +51,91 @@ Onde:
 * (V) representa o conjunto de vértices;
 * (E) representa o conjunto de arestas direcionadas.
 
-O direcionamento das arestas permite representar ruas de mão única e restrições de tráfego urbano.
+O direcionamento das arestas permite representar:
+
+* ruas de mão única;
+* fluxo urbano;
+* restrições de deslocamento;
+* conectividade assimétrica entre regiões.
 
 ---
 
 ## 2.1 Vértices
 
-Os vértices do grafo representam elementos relevantes da infraestrutura logística:
+Os vértices representam elementos relevantes da infraestrutura logística urbana.
 
-* depósito central;
-* pontos de coleta;
-* pontos de entrega;
-* centros de distribuição;
-* cruzamentos e conexões urbanas.
+### Depósito Central
 
-Cada vértice representa uma localização específica da rede logística.
+Representa o ponto principal de saída e retorno das operações logísticas.
+
+Exemplo:
+
+```text
+deposito_central
+```
+
+---
+
+### Pontos de Coleta
+
+Representam locais responsáveis pela coleta inicial de encomendas.
+
+Exemplos:
+
+```text
+coleta_norte_1
+coleta_centro_3
+coleta_sul_2
+```
+
+---
+
+### Pontos de Entrega
+
+Representam os destinos finais das encomendas.
+
+Exemplos:
+
+```text
+entrega_leste_4
+entrega_oeste_2
+entrega_centro_5
+```
+
+---
+
+### Cruzamentos Estratégicos
+
+Representam conexões relevantes da malha viária.
+
+Exemplos:
+
+```text
+cruzamento_norte_central
+cruzamento_sul_leste
+cruzamento_oeste_central
+```
+
+Esses vértices aumentam a conectividade do grafo e tornam a modelagem mais realista.
+
+---
+
+### Centros de Distribuição
+
+Representam pontos intermediários de redistribuição logística.
+
+Exemplos:
+
+```text
+centro_distribuicao_norte
+centro_distribuicao_sul
+```
 
 ---
 
 ## 2.2 Arestas
 
-As arestas representam conexões viárias entre diferentes regiões da cidade.
+As arestas representam conexões entre vértices da rede logística.
 
 Cada aresta possui um peso associado:
 
@@ -76,19 +143,29 @@ Cada aresta possui um peso associado:
 w(u,v)
 ```
 
-O peso pode representar:
+Onde o peso representa:
 
 * tempo estimado de deslocamento;
 * distância percorrida;
 * custo operacional do trajeto.
 
-A utilização de pesos permite que algoritmos de otimização determinem rotas mais eficientes.
+Exemplo extraído do arquivo `grafo.txt`:
+
+```text
+deposito_central coleta_norte_1 15
+```
+
+Nesse caso:
+
+* origem: `deposito_central`
+* destino: `coleta_norte_1`
+* peso: `15`
 
 ---
 
 ## 2.3 Estrutura de Dados
 
-O grafo foi implementado utilizando lista de adjacências, permitindo melhor eficiência no armazenamento e manipulação da rede.
+O grafo foi implementado utilizando lista de adjacências, estrutura adequada para grafos esparsos e eficiente em termos computacionais.
 
 Exemplo:
 
@@ -96,7 +173,7 @@ Exemplo:
 {
     "deposito_central": [
         ("coleta_norte_1", 15),
-        ("cruzamento_1", 8)
+        ("cruzamento_centro_leste", 6)
     ],
 
     "coleta_norte_1": [
@@ -105,16 +182,17 @@ Exemplo:
 }
 ```
 
-Cada entrada contém:
+Essa estrutura permite:
 
-* vértice de destino;
-* peso associado à aresta.
+* inserção eficiente de arestas;
+* melhor desempenho em algoritmos de busca;
+* redução de consumo de memória.
 
 ---
 
 # 3. Técnicas de Teoria dos Grafos Aplicadas
 
-Foram aplicadas técnicas clássicas de Teoria dos Grafos para resolver diferentes aspectos do problema logístico.
+Foram implementadas técnicas clássicas de Teoria dos Grafos para resolução de diferentes aspectos do problema logístico.
 
 ---
 
@@ -124,56 +202,78 @@ O algoritmo de Dijkstra foi utilizado para determinação de caminhos mínimos e
 
 ### Objetivos
 
-* encontrar rotas mais curtas;
-* minimizar tempo de deslocamento;
-* reduzir custos operacionais.
+* minimizar distância percorrida;
+* reduzir tempo de entrega;
+* encontrar trajetos mais eficientes.
 
 ### Aplicações
 
-* trajeto entre depósito e ponto de coleta;
-* trajeto entre pontos de entrega;
-* cálculo de menor distância entre regiões da rede.
+* rota entre depósito e ponto de coleta;
+* deslocamento entre entregas;
+* planejamento de trajetos urbanos.
+
+### Complexidade
+
+```math
+O((V + E)\log V)
+```
+
+A implementação utiliza fila de prioridade baseada em heap binário.
 
 ---
 
-## 3.2 Problema do Caixeiro Viajante (PCV)
+## 3.2 Problema do Caixeiro Viajante
 
-Para otimização de múltiplas entregas foi utilizada a heurística do Vizinho Mais Próximo, aplicada ao Problema do Caixeiro Viajante.
+Foi utilizada a heurística do Vizinho Mais Próximo para otimização de rotas envolvendo múltiplos pontos.
 
 ### Objetivos
 
+* reduzir custo total da rota;
 * otimizar sequência de visitas;
-* reduzir distância total percorrida;
-* melhorar eficiência das rotas.
+* melhorar eficiência operacional.
 
 ### Justificativa
 
-O Problema do Caixeiro Viajante possui elevada complexidade computacional, tornando inviável a busca exata em redes grandes. Dessa forma, foi utilizada uma heurística capaz de produzir soluções aproximadas em tempo polinomial.
+O Problema do Caixeiro Viajante possui elevada complexidade computacional, tornando inviável a busca exata para grandes redes. Dessa forma, foi utilizada uma abordagem heurística capaz de produzir soluções aproximadas em tempo viável.
 
 ---
 
 ## 3.3 Algoritmo de Ford-Fulkerson
 
-O algoritmo de Ford-Fulkerson foi aplicado para análise de fluxo máximo na rede logística.
+O algoritmo de Ford-Fulkerson foi utilizado para análise de fluxo máximo na rede logística.
 
 ### Objetivos
 
 * identificar gargalos;
-* analisar capacidade da infraestrutura;
-* avaliar regiões críticas da rede.
+* analisar capacidade da rede;
+* avaliar regiões críticas da infraestrutura.
 
 ### Aplicações
 
-* análise da capacidade de centros de distribuição;
-* identificação de trechos sobrecarregados;
-* avaliação do fluxo máximo de encomendas.
+* análise da capacidade entre centros de distribuição;
+* avaliação de trechos sobrecarregados;
+* estudo do fluxo máximo de encomendas.
+
+### Complexidade
+
+```math
+O(E \cdot f^*)
+```
+
+Onde (f^*) representa o fluxo máximo encontrado.
 
 ---
 
 # 4. Considerações Finais da Modelagem
 
-A modelagem proposta permite representar de forma realista uma rede logística urbana, possibilitando aplicação prática de conceitos fundamentais da Teoria dos Grafos.
+A modelagem proposta permite representar de forma realista uma rede logística urbana utilizando conceitos fundamentais da Teoria dos Grafos.
 
-A utilização de algoritmos clássicos possibilita analisar diferentes aspectos operacionais da rede, incluindo roteamento, otimização de trajetos e capacidade da infraestrutura logística.
+A utilização de grafos ponderados direcionados possibilita analisar:
 
-Além disso, a modelagem fornece base para futuras expansões, como integração com sistemas de trânsito em tempo real, análise dinâmica de rotas e visualização gráfica da rede.
+* rotas mínimas;
+* eficiência logística;
+* capacidade operacional;
+* conectividade urbana;
+* fluxo de distribuição.
+
+Além disso, a implementação desenvolvida fornece base para futuras expansões, incluindo visualização gráfica, integração com mapas urbanos e análise dinâmica de tráfego em tempo real.
