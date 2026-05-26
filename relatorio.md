@@ -154,7 +154,7 @@ A aplicação implementa funcionalidades para descobrir características fundame
 
 ```
 projeto_teoria_grafos/
-├── grafo.txt                    # Arquivo de dados do grafo
+├── grafo/grafo                  # Arquivo de dados do grafo em txt e no modelo do graphonline
 ├── aplicacao_entrega.py         # Aplicação principal
 ├── definicao_e_modelagem.md     # Documentação da modelagem
 ├── RELATORIO_PROJETO.md         # Este relatório
