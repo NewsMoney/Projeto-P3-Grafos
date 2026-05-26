@@ -1,409 +1,388 @@
-<!-- Arquivo Markdown (.md) pronto para exportação e uso acadêmico -->
+# Relatório do Projeto: Aplicação para Resolução de Categorias de Problemas com Grafos
 
-# RELATÓRIO DO PROJETO
-## Aplicação para Resolução de Categorias de Problemas com Grafos
+**Disciplina:** Teoria dos Grafos (Turma 6G)
 
-**Disciplina:** Teoria dos Grafos – Turma 6G  
-**Professor:** Prof. Dr. Ivan Carlos Alcântara de Oliveira  
-**Universidade:** Universidade Presbiteriana Mackenzie  
-**Faculdade:** Faculdade de Computação e Informática  
-**Período:** 2026/1  
+**Período:** 2026/1
 
----
+**Universidade:** Universidade Presbiteriana Mackenzie
 
-# SUMÁRIO
+**Professor:** Prof. Dr. Ivan Carlos Alcântara de Oliveira
 
-1. Introdução  
-2. Definição do Problema  
-3. Objetivos do Projeto  
-4. Objetivos de Desenvolvimento Sustentável (ODS)  
-5. Modelagem do Problema com Grafos  
-6. Técnicas de Teoria dos Grafos Aplicadas  
-7. Estrutura da Implementação  
-8. Resultados Obtidos  
-9. Análise Computacional  
-10. Desafios Encontrados  
-11. Possíveis Extensões  
-12. Conclusão  
-13. Referências  
-14. Apêndice  
+**Aluno:** Milton Almeida Leoncio
+
+**RA:** 10416764
 
 ---
 
-# 1. INTRODUÇÃO
+## 1. Introdução
 
-A Teoria dos Grafos constitui uma importante área da Ciência da Computação e da Matemática Discreta, sendo amplamente utilizada na modelagem e resolução de problemas relacionados a redes, logística, comunicação, transporte, distribuição e otimização.
-
-O presente projeto tem como objetivo desenvolver uma aplicação computacional capaz de modelar e resolver um problema real de logística de entregas utilizando conceitos fundamentais da disciplina de Teoria dos Grafos. A aplicação foi desenvolvida utilizando linguagem Python e implementa diferentes algoritmos estudados ao longo da disciplina, permitindo analisar rotas, fluxos e características estruturais da rede modelada.
-
-O problema selecionado representa um sistema de entregas em uma área metropolitana, no qual pontos de coleta, entrega, centros de distribuição e conexões viárias são representados por vértices e arestas de um grafo ponderado direcionado.
-
-A proposta busca demonstrar a aplicabilidade prática dos conceitos teóricos estudados em sala de aula, evidenciando como algoritmos clássicos podem ser utilizados para solucionar problemas reais de otimização logística.
+Este relatório documenta o desenvolvimento da Parte 3 do projeto da disciplina de Teoria dos Grafos, que visa resolver uma categoria de problemas do mundo real utilizando conceitos e técnicas estudados na disciplina. O projeto implementa uma aplicação prática de otimização logística de entrega de encomendas em uma área metropolitana, modelando o problema como um grafo ponderado direcionado com mais de 70 vértices e 180 arestas.
 
 ---
 
-# 2. DEFINIÇÃO DO PROBLEMA
+## 2. Definição do Problema
 
-## 2.1 Contextualização
+### 2.1 Descrição do Problema Real
 
-Empresas de logística e transporte enfrentam diariamente desafios relacionados ao planejamento eficiente de rotas, redução de custos operacionais e melhoria da eficiência das entregas.
+O problema abordado é a **otimização logística de entrega de encomendas em uma área metropolitana**. Uma empresa de entregas enfrenta o desafio de planejar rotas eficientes para seus entregadores, que devem coletar e entregar pacotes em diversos pontos da cidade. Os objetivos principais são:
 
-O crescimento urbano e o aumento da demanda por entregas tornam necessário o desenvolvimento de sistemas capazes de:
+- Minimizar o tempo total de entrega
 
-- reduzir distâncias percorridas;
-- minimizar o tempo total de entrega;
-- evitar congestionamentos;
-- identificar gargalos na malha viária;
-- otimizar a utilização da frota de entregadores.
+- Minimizar a distância percorrida
 
-Diante desse cenário, foi desenvolvido um sistema baseado em grafos para representar a infraestrutura logística de uma região metropolitana.
+- Maximizar a eficiência da frota de entregadores
 
----
+- Identificar gargalos na infraestrutura viária
 
-## 2.2 Descrição do Cenário
+### 2.2 Cenário Detalhado
 
-O sistema modelado contempla:
+O cenário contempla:
 
-- 1 depósito central;
-- 26 pontos de coleta;
-- 36 pontos de entrega;
-- 11 vértices intermediários representando cruzamentos e conexões viárias;
-- 4 centros de distribuição secundários.
+- **Depósito Central:** Ponto único de partida e retorno de todos os entregadores
 
-A rede total possui:
+- **Pontos de Coleta:** 26 locais onde os entregadores devem buscar encomendas
 
-- **73 vértices**
-- **219 arestas**
+- **Pontos de Entrega:** 36 locais onde os entregadores devem deixar encomendas
 
-As arestas representam ruas e avenidas conectando diferentes regiões da cidade, enquanto os pesos associados representam custo, distância ou tempo médio de deslocamento.
+- **Cruzamentos e Pontos Estratégicos:** 11 vértices intermediários para representar a malha viária
 
----
+- **Centros de Distribuição:** 4 pontos de distribuição secundários
 
-# 3. OBJETIVOS DO PROJETO
+- **Frota:** Entregadores homogêneos com capacidade limitada e tempo máximo de jornada
 
-## 3.1 Objetivo Geral
+### 2.3 Modelagem como Grafo
 
-Desenvolver uma aplicação computacional baseada em Teoria dos Grafos para modelar e otimizar um sistema logístico de entregas urbanas.
+O problema é modelado como um **grafo ponderado direcionado** G = (V, E):
 
----
+- **Vértices (V):** Representam pontos de interesse (depósito, coletas, entregas, cruzamentos)
 
-## 3.2 Objetivos Específicos
+- **Arestas (E):** Representam trechos de ruas e avenidas com pesos (tempo, distância ou custo)
 
-- Implementar algoritmos clássicos de Teoria dos Grafos;
-- Modelar um problema real utilizando grafos ponderados;
-- Determinar caminhos mínimos entre pontos da rede;
-- Analisar capacidades e gargalos da infraestrutura;
-- Investigar características estruturais do grafo;
-- Produzir análises quantitativas sobre a rede logística.
+- **Quantidade:** 73 vértices e 219 arestas
+
+- **Análise Estrutural:** A aplicação realiza verificações de conexidade, classificação euleriana e coloração de vértices para entender a topologia da rede logística.
 
 ---
 
-# 4. OBJETIVOS DE DESENVOLVIMENTO SUSTENTÁVEL (ODS)
+## 3. Técnicas de Teoria dos Grafos Aplicadas
 
-O projeto apresenta relação direta com os Objetivos de Desenvolvimento Sustentável definidos pela Organização das Nações Unidas (ONU).
+### 3.1 Algoritmo de Dijkstra (Caminhos Mínimos)
 
-## ODS 9 – Indústria, Inovação e Infraestrutura
+**Objetivo:** Encontrar a rota mais rápida ou mais curta entre quaisquer dois pontos na rede.
 
-A aplicação contribui para a melhoria da eficiência logística e otimização da infraestrutura urbana, utilizando tecnologia computacional para análise de redes.
+**Aplicação:**
 
-## ODS 11 – Cidades e Comunidades Sustentáveis
+- Calcular o tempo mínimo para ir do depósito a um ponto de coleta
 
-A otimização de rotas reduz congestionamentos, melhora a mobilidade urbana e contribui para sistemas de transporte mais eficientes.
+- Determinar a rota mais curta entre dois pontos de entrega
 
-## ODS 13 – Ação Contra a Mudança Global do Clima
+- Estimar custos de segmentos de rota
 
-A redução de trajetos desnecessários contribui para menor emissão de gases poluentes e redução do consumo de combustível.
+**Complexidade:** O((V + E) \log V) com heap binário
+
+**Implementação:** A implementação utiliza uma fila de prioridade (heap) para selecionar eficientemente o vértice com menor distância acumulada em cada iteração.
+
+### 3.2 Heurística do Vizinho Mais Próximo (Problema do Caixeiro Viajante)
+
+**Objetivo:** Otimizar a sequência de visitas a múltiplos pontos, minimizando o tempo ou distância total.
+
+**Aplicação:**
+
+- Determinar a ordem ideal de coleta de encomendas
+
+- Planejar a sequência de entregas para um entregador
+
+- Reduzir o tempo de jornada
+
+**Complexidade:** O(n^2 \cdot (V + E) \log V) onde n é o número de pontos a visitar
+
+**Funcionamento:**
+
+1. Inicia no ponto de origem (depósito)
+
+1. A cada passo, move-se para o ponto não visitado mais próximo
+
+1. Repete até visitar todos os pontos
+
+1. Retorna ao ponto de origem
+
+**Limitações:** A heurística não garante a solução ótima, mas fornece uma solução aproximada em tempo polinomial.
+
+### 3.3 Algoritmo de Ford-Fulkerson (Fluxo Máximo)
+
+**Objetivo:** Determinar a capacidade máxima da rede de entrega em pontos críticos.
+
+**Aplicação:**
+
+- Analisar o número máximo de encomendas que podem passar por uma região
+
+- Identificar gargalos na infraestrutura viária
+
+- Avaliar a capacidade de processamento de centros de distribuição
+
+**Complexidade:** O(E \cdot f^*) onde f^* é o fluxo máximo
+
+**Funcionamento:**
+
+1. Inicializa o fluxo como zero
+
+1. Busca caminhos aumentantes no grafo residual
+
+1. Incrementa o fluxo ao longo de cada caminho encontrado
+
+1. Repete até que não haja mais caminhos aumentantes
+
+**Teorema Fundamental:** O fluxo máximo é igual à capacidade do corte mínimo (Teorema de Ford-Fulkerson).
+
+### 3.4 Análise Estrutural (Requisito 2 do Projeto)
+
+A aplicação implementa funcionalidades para descobrir características fundamentais do problema modelado:
+
+- **Grau dos Vértices:** Calcula graus de entrada e saída para identificar os pontos mais conectados da rede (hubs logísticos).
+
+- **Verificação Euleriana:** Analisa se a malha viária permite um percurso que visite todas as ruas exatamente uma vez sem repetição (Caminho/Ciclo Euleriano).
+
+- **Coloração de Vértices:** Utiliza uma heurística sequencial para particionar os pontos de entrega em conjuntos independentes. Isso é útil para agendar entregas simultâneas sem conflitos de recursos ou proximidade excessiva.
+
+- **Teste de Conexidade:** Garante que todos os pontos da cidade são atingíveis a partir do depósito central.
 
 ---
 
-# 5. MODELAGEM DO PROBLEMA COM GRAFOS
+## 4. Estrutura da Implementação
 
-O problema foi modelado como um grafo ponderado direcionado:
+### 4.1 Arquivos do Projeto
 
-```math
-G = (V, E)
+```
+projeto_teoria_grafos/
+├── grafo.txt                    # Arquivo de dados do grafo
+├── aplicacao_entrega.py         # Aplicação principal
+├── definicao_e_modelagem.md     # Documentação da modelagem
+├── RELATORIO_PROJETO.md         # Este relatório
+└── README.md                    # Instruções de uso
 ```
 
-Onde:
+### 4.2 Classe Principal: GrafoEntrega
 
-- \(V\) representa o conjunto de vértices;
-- \(E\) representa o conjunto de arestas direcionadas.
+A classe `GrafoEntrega` encapsula toda a lógica de manipulação do grafo e implementação dos algoritmos:
 
-Os vértices representam:
+**Atributos:**
 
-- depósitos;
-- pontos de coleta;
-- pontos de entrega;
-- centros de distribuição;
-- conexões viárias.
+- `vertices`: Conjunto de vértices do grafo
 
-As arestas representam conexões entre regiões da cidade.
+- `arestas`: Dicionário de adjacências (lista de vizinhos com pesos)
 
-Cada aresta possui um peso associado:
+- `capacidades`: Dicionário de capacidades das arestas
 
-```math
-w(e) = d(e) + t(e)
+**Métodos Principais:**
+
+- `carregar_de_arquivo()`: Carrega o grafo a partir de um arquivo
+
+- `dijkstra()`: Implementa o algoritmo de Dijkstra
+
+- `vizinho_mais_proximo()`: Implementa a heurística do vizinho mais próximo
+
+- `ford_fulkerson()`: Implementa o algoritmo de Ford-Fulkerson
+
+- `obter_estatisticas()`: Retorna estatísticas do grafo
+
+- `listar_vertices()`: Lista todos os vértices
+
+### 4.3 Formato do Arquivo de Dados (grafo.txt)
+
+O arquivo segue um formato estruturado em duas seções:
+
+```
+VERTICES
+deposito_central
+coleta_norte_1
+coleta_norte_2
+...
+
+ARESTAS
+deposito_central coleta_norte_1 15
+deposito_central coleta_norte_2 18
+...
 ```
 
-Onde:
-
-- \(d(e)\) representa distância;
-- \(t(e)\) representa tempo médio de deslocamento.
+Cada aresta é definida por: `origem destino peso`
 
 ---
 
-## 5.1 Características do Grafo
+## 5. Resultados e Análise
 
-| Característica | Valor |
-|---|---|
+### 5.1 Características do Grafo
+
+| Métrica | Valor |
+| --- | --- |
 | Número de vértices | 73 |
 | Número de arestas | 219 |
-| Grau médio | 3,00 |
+| Grau médio | 3.00 |
 | Grau máximo | 17 |
-| Densidade | 0,041 |
-| Tipo | Direcionado |
-| Ponderação | Sim |
+| Densidade | 0.041 |
+
+### 5.2 Exemplos de Execução
+
+#### Exemplo 1: Caminho Mínimo (Dijkstra)
+
+**Entrada:**
+
+- Origem: `deposito_central`
+
+- Destino: `entrega_norte_1`
+
+**Saída:**
+
+- Distância mínima: 27
+
+- Caminho: `deposito_central → coleta_norte_1 → entrega_norte_1`
+
+#### Exemplo 2: Rota Otimizada (Vizinho Mais Próximo)
+
+**Entrada:**
+
+- Origem: `deposito_central`
+
+- Pontos a visitar: `coleta_norte_1, coleta_norte_2, entrega_norte_1, entrega_norte_2`
+
+**Saída:**
+
+- Custo total: 68
+
+- Rota: `deposito_central → coleta_norte_1 → coleta_norte_2 → entrega_norte_1 → entrega_norte_2 → deposito_central`
+
+#### Exemplo 3: Fluxo Máximo (Ford-Fulkerson)
+
+**Entrada:**
+
+- Origem (fonte): `deposito_central`
+
+- Destino (sumidouro): `entrega_norte_1`
+
+**Saída:**
+
+- Fluxo máximo: 27
 
 ---
 
-# 6. TÉCNICAS DE TEORIA DOS GRAFOS APLICADAS
+## 6. Instruções de Uso
 
-## 6.1 Algoritmo de Dijkstra
+### 6.1 Requisitos
 
-O algoritmo de Dijkstra foi utilizado para determinar caminhos mínimos entre diferentes pontos da rede logística.
+- Python 3.7 ou superior
 
-### Objetivos
+- Nenhuma dependência externa (apenas bibliotecas padrão)
 
-- encontrar a rota mais curta;
-- minimizar tempo de deslocamento;
-- reduzir custos operacionais.
+### 6.2 Execução da Aplicação
 
-### Complexidade
-
-```math
-O((V + E) \log V)
+```bash
+python3 aplicacao_entrega.py
 ```
 
-### Aplicações
+### 6.3 Menu de Opções
 
-- rota entre depósito e ponto de entrega;
-- cálculo de menor distância;
-- planejamento de deslocamento.
+A aplicação oferece um menu interativo com as seguintes opções:
 
----
+1. **Carregar grafo do arquivo:** Carrega os dados do grafo a partir de um arquivo
 
-## 6.2 Heurística do Vizinho Mais Próximo
+1. **Exibir estatísticas e Análise Estrutural:** Mostra informações sobre o grafo, incluindo graus, conexidade e classificação euleriana.
 
-A heurística do Vizinho Mais Próximo foi aplicada ao Problema do Caixeiro Viajante.
+1. **Encontrar caminho mínimo:** Executa o algoritmo de Dijkstra.
 
-### Objetivos
+1. **Otimizar rota de entrega:** Executa a heurística do vizinho mais próximo para o PCV.
 
-- determinar sequência eficiente de visitas;
-- reduzir distância percorrida;
-- otimizar rotas múltiplas.
+1. **Calcular fluxo máximo:** Executa o algoritmo de Ford-Fulkerson.
 
-### Funcionamento
+1. **Realizar Coloração de Vértices:** Calcula o número cromático e as partições de cores.
 
-1. inicia no depósito central;
-2. seleciona o vértice não visitado mais próximo;
-3. repete o processo até visitar todos os pontos;
-4. retorna ao ponto inicial.
+1. **Listar vértices:** Exibe todos os vértices do grafo.
 
-### Limitações
-
-A heurística não garante solução ótima global, porém apresenta baixo custo computacional e desempenho satisfatório para aplicações práticas.
+1. **Sair:** Encerra a aplicação.
 
 ---
 
-## 6.3 Algoritmo de Ford-Fulkerson
+## 7. Análise Teórica
 
-O algoritmo de Ford-Fulkerson foi utilizado para análise de fluxo máximo na rede.
+### 7.1 Complexidade Computacional
 
-### Objetivos
+| Algoritmo | Complexidade | Observações |
+| --- | --- | --- |
+| Dijkstra | O((V + E) \log V) | Com heap binário |
+| Vizinho Mais Próximo | O(n^2 \cdot (V + E) \log V) | Onde $n$ é o número de pontos |
+| Ford-Fulkerson | O(E \cdot f^*) | Onde f^* é o fluxo máximo |
 
-- identificar gargalos;
-- analisar capacidade da rede;
-- avaliar limites operacionais.
+### 7.2 Justificativa das Técnicas
 
-### Complexidade
+**Por que Dijkstra?**
 
-```math
-O(E \cdot f^*)
-```
+- Encontra caminhos mínimos em grafos com pesos não-negativos
 
-Onde \(f^*\) representa o fluxo máximo encontrado.
+- Essencial para determinar rotas mais rápidas ou curtas
 
----
+- Complexidade aceitável para grafos de tamanho moderado
 
-# 7. ESTRUTURA DA IMPLEMENTAÇÃO
+**Por que Vizinho Mais Próximo?**
 
-O projeto foi desenvolvido utilizando linguagem Python.
+- O Problema do Caixeiro Viajante é NP-Difícil
 
-## 7.1 Estrutura de Arquivos
+- A heurística fornece soluções aproximadas em tempo polinomial
 
-```text
-projeto_teoria_grafos/
-├── grafo.txt
-├── aplicacao_entrega.py
-├── RELATORIO_PROJETO.md
-├── README.md
-└── definicao_e_modelagem.md
-```
+- Adequada para aplicações práticas onde a solução ótima é computacionalmente intratável
 
----
+**Por que Ford-Fulkerson?**
 
-## 7.2 Classe Principal
+- Analisa a capacidade da rede em pontos críticos
 
-A aplicação utiliza a classe `GrafoEntrega`, responsável pela manipulação do grafo e execução dos algoritmos.
+- Identifica gargalos na infraestrutura
 
-### Principais Métodos
-
-| Método | Função |
-|---|---|
-| carregar_de_arquivo() | Carrega o grafo |
-| dijkstra() | Caminho mínimo |
-| vizinho_mais_proximo() | Otimização de rotas |
-| ford_fulkerson() | Fluxo máximo |
-| obter_estatisticas() | Estatísticas do grafo |
-| listar_vertices() | Exibição dos vértices |
+- Fundamental para planejamento de capacidade
 
 ---
 
-# 8. RESULTADOS OBTIDOS
+## 8. Possíveis Extensões
 
-A aplicação apresentou funcionamento adequado para os cenários testados.
+O projeto pode ser estendido com as seguintes melhorias:
 
-## 8.1 Caminhos Mínimos
+1. **Algoritmo A*:** Para busca mais eficiente com heurísticas admissíveis
 
-O algoritmo de Dijkstra permitiu determinar rotas eficientes entre diferentes pontos da rede logística.
+1. **Algoritmo de Christofides:** Para melhor aproximação do PCV
 
----
+1. **Fluxo com Custo Mínimo:** Usando algoritmo de Bellman-Ford
 
-## 8.2 Otimização de Rotas
+1. **Visualização Gráfica:** Usando bibliotecas como NetworkX e Matplotlib
 
-A heurística do Vizinho Mais Próximo reduziu significativamente o custo total das rotas planejadas.
+1. **Análise de Conectividade:** Verificação de grafos h-conexos
 
----
+1. **Coloração de Grafos:** Para alocação de horários de entrega
 
-## 8.3 Fluxo Máximo
-
-O algoritmo de Ford-Fulkerson possibilitou identificar regiões críticas da rede e limitações estruturais.
+1. **Emparelhamentos:** Para alocação ótima de entregadores a rotas
 
 ---
 
-## 8.4 Características Estruturais Investigadas
+## 9. Conclusões
 
-Durante a análise do grafo foram investigadas:
+O projeto implementa com sucesso uma aplicação prática de Teoria dos Grafos para otimização logística. As três técnicas aplicadas (Dijkstra, Vizinho Mais Próximo e Ford-Fulkerson) cobrem diferentes aspectos do problema:
 
-- grau dos vértices;
-- densidade da rede;
-- conectividade;
-- distribuição de conexões;
-- existência de gargalos;
-- capacidade de fluxo.
+- **Dijkstra** resolve o problema de roteamento ponto-a-ponto
 
----
+- **Vizinho Mais Próximo** otimiza rotas com múltiplos pontos
 
-# 9. ANÁLISE COMPUTACIONAL
+- **Ford-Fulkerson** analisa a capacidade da rede
 
-| Algoritmo | Complexidade | Finalidade |
-|---|---|---|
-| Dijkstra | O((V+E)logV) | Caminho mínimo |
-| Vizinho Mais Próximo | O(n²) | Roteamento |
-| Ford-Fulkerson | O(E*f*) | Fluxo máximo |
+A implementação demonstra a relevância prática da Teoria dos Grafos na solução de problemas reais de otimização, mostrando como conceitos teóricos podem ser aplicados efetivamente em cenários do mundo real.
 
 ---
 
-## 9.1 Comparação das Técnicas
+## 10. Referências
 
-| Técnica | Vantagens | Limitações |
-|---|---|---|
-| Dijkstra | Alta precisão | Não aceita pesos negativos |
-| Vizinho Mais Próximo | Baixo custo computacional | Não garante solução ótima |
-| Ford-Fulkerson | Excelente análise de capacidade | Custo elevado em redes grandes |
+1. Cormen, T. H., Leiserson, C. E., Rivest, R. L., & Stein, C. (2009). *Introduction to Algorithms* (3rd ed.). MIT Press.
 
----
+1. Diestel, R. (2017). *Graph Theory* (5th ed.). Springer.
 
-# 10. DESAFIOS ENCONTRADOS
+1. Goldbarg, M. C., & Goldbarg, E. (2012). *Grafos: Conceitos, Algoritmos e Aplicações*. Elsevier.
 
-Durante o desenvolvimento do projeto foram identificados diversos desafios técnicos, dentre os quais destacam-se:
+1. Sedgewick, R., & Wayne, K. (2011). *Algorithms* (4th ed.). Addison-Wesley.
 
-- modelagem adequada da rede logística;
-- definição dos pesos das arestas;
-- garantia de conectividade do grafo;
-- tratamento de ciclos;
-- organização eficiente da estrutura de dados;
-- implementação correta dos algoritmos;
-- controle da complexidade computacional.
+1. West, D. B. (2001). *Introduction to Graph Theory* (2nd ed.). Prentice Hall.
 
-Além disso, houve preocupação com a escalabilidade da aplicação, visando permitir expansão futura da rede modelada.
-
----
-
-# 11. POSSÍVEIS EXTENSÕES
-
-O projeto pode ser expandido futuramente com:
-
-- algoritmo A*;
-- algoritmo de Bellman-Ford;
-- análise de centralidade;
-- coloração de grafos;
-- emparelhamentos;
-- visualização gráfica dinâmica;
-- integração com APIs de mapas;
-- análise em tempo real do trânsito urbano.
-
----
-
-# 12. CONCLUSÃO
-
-O projeto demonstrou a aplicabilidade prática da Teoria dos Grafos na resolução de problemas logísticos reais.
-
-Os algoritmos implementados permitiram:
-
-- determinar caminhos mínimos;
-- otimizar rotas;
-- analisar capacidades da rede;
-- investigar características estruturais do sistema.
-
-A utilização de grafos mostrou-se eficiente para representação da infraestrutura logística urbana, permitindo análises computacionais relevantes e soluções aplicáveis ao contexto real.
-
-Além disso, o projeto evidencia como conceitos teóricos estudados em disciplinas de Matemática Discreta e Ciência da Computação podem ser utilizados para solucionar problemas concretos relacionados à mobilidade, transporte e logística.
-
----
-
-# 13. REFERÊNCIAS
-
-1. CORMEN, Thomas H. et al. *Introduction to Algorithms*. 3. ed. MIT Press, 2009.
-
-2. DIESTEL, Reinhard. *Graph Theory*. 5. ed. Springer, 2017.
-
-3. GOLDBARG, Marco César; GOLDBARG, Elizabeth. *Grafos: Conceitos, Algoritmos e Aplicações*. Elsevier, 2012.
-
-4. SEDGEWICK, Robert; WAYNE, Kevin. *Algorithms*. 4. ed. Addison-Wesley, 2011.
-
-5. WEST, Douglas B. *Introduction to Graph Theory*. 2. ed. Prentice Hall, 2001.
-
----
-
-# 14. APÊNDICE
-
-## Repositório GitHub
-
-[Link do repositorio do GitHub.](https://github.com/NewsMoney/Projeto-P3-Grafos/blob/main/README.md)
-
----
-
-## Vídeo de Apresentação
-
-Link do vídeo publicado no YouTube.
-
----
-
-## Dados dos Integrantes
-
-| Nome | RA |
-|---|---|
-| Milton Almeida Leoncio | 10416764 |
 
 
