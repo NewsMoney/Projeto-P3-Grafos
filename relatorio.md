@@ -127,9 +127,7 @@ O sistema SOL-AVM demonstra como a Teoria dos Grafos provê ferramentas matemát
 
 ### Links do Projeto
 
-- **GitHub:** [https://github.com/miltonleoncio/projeto-grafos-mackenzie](https://github.com/miltonleoncio/projeto-grafos-mackenzie)
-
-**
+- **GitHub:** [https://github.com/miltonleoncio/projeto-grafos-mackenzie](https://github.com/NewsMoney/Projeto-P3-Grafos)
 
 ### Estrutura de Arquivos
 
