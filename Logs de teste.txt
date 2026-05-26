@@ -1,0 +1,721 @@
+================================================================================
+LOGS DE EXECUÇÃO DA APLICAÇÃO - TESTES PARA RELATÓRIO
+================================================================================
+
+### Teste 1: Carregar grafo padrão
+----------------------------------------
+============================================================
+============================================================
+
+1. Carregar grafo do arquivo
+2. Exibir estatísticas e Análise Estrutural
+3. Encontrar caminho mínimo (Dijkstra)
+4. Otimizar rota de entrega (Vizinho Mais Próximo)
+5. Calcular fluxo máximo (Ford-Fulkerson)
+6. Realizar Coloração de Vértices
+7. Listar todos os vértices
+8. Sair
+------------------------------------------------------------
+  - Vértices: 73
+  - Arestas: 219
+
+============================================================
+============================================================
+
+1. Carregar grafo do arquivo
+2. Exibir estatísticas e Análise Estrutural
+3. Encontrar caminho mínimo (Dijkstra)
+4. Otimizar rota de entrega (Vizinho Mais Próximo)
+5. Calcular fluxo máximo (Ford-Fulkerson)
+6. Realizar Coloração de Vértices
+7. Listar todos os vértices
+8. Sair
+------------------------------------------------------------
+Encerrando a aplicação. Até logo!
+
+================================================================================
+
+### Teste 2: Tentar carregar arquivo inexistente
+----------------------------------------
+============================================================
+============================================================
+
+1. Carregar grafo do arquivo
+2. Exibir estatísticas e Análise Estrutural
+3. Encontrar caminho mínimo (Dijkstra)
+4. Otimizar rota de entrega (Vizinho Mais Próximo)
+5. Calcular fluxo máximo (Ford-Fulkerson)
+6. Realizar Coloração de Vértices
+7. Listar todos os vértices
+8. Sair
+------------------------------------------------------------
+
+============================================================
+============================================================
+
+1. Carregar grafo do arquivo
+2. Exibir estatísticas e Análise Estrutural
+3. Encontrar caminho mínimo (Dijkstra)
+4. Otimizar rota de entrega (Vizinho Mais Próximo)
+5. Calcular fluxo máximo (Ford-Fulkerson)
+6. Realizar Coloração de Vértices
+7. Listar todos os vértices
+8. Sair
+------------------------------------------------------------
+Encerrando a aplicação. Até logo!
+
+================================================================================
+
+### Teste 3: Exibir estatísticas do grafo
+----------------------------------------
+============================================================
+============================================================
+
+1. Carregar grafo do arquivo
+2. Exibir estatísticas e Análise Estrutural
+3. Encontrar caminho mínimo (Dijkstra)
+4. Otimizar rota de entrega (Vizinho Mais Próximo)
+5. Calcular fluxo máximo (Ford-Fulkerson)
+6. Realizar Coloração de Vértices
+7. Listar todos os vértices
+8. Sair
+------------------------------------------------------------
+  - Vértices: 73
+  - Arestas: 219
+
+============================================================
+============================================================
+
+1. Carregar grafo do arquivo
+2. Exibir estatísticas e Análise Estrutural
+3. Encontrar caminho mínimo (Dijkstra)
+4. Otimizar rota de entrega (Vizinho Mais Próximo)
+5. Calcular fluxo máximo (Ford-Fulkerson)
+6. Realizar Coloração de Vértices
+7. Listar todos os vértices
+8. Sair
+------------------------------------------------------------
+============================================================
+ESTATÍSTICAS E ANÁLISE ESTRUTURAL
+============================================================
+Número de vértices: 73
+Número de arestas: 219
+Grau médio: 3.00
+Grau máximo de saída: 17
+Grau máximo de entrada: 9
+Grafo Conexo: Sim
+Classificação Euleriana: Não Euleriano (48 vértices de grau ímpar)
+============================================================
+
+============================================================
+============================================================
+
+1. Carregar grafo do arquivo
+2. Exibir estatísticas e Análise Estrutural
+3. Encontrar caminho mínimo (Dijkstra)
+4. Otimizar rota de entrega (Vizinho Mais Próximo)
+5. Calcular fluxo máximo (Ford-Fulkerson)
+6. Realizar Coloração de Vértices
+7. Listar todos os vértices
+8. Sair
+------------------------------------------------------------
+Encerrando a aplicação. Até logo!
+
+================================================================================
+
+### Teste 4: Tentar exibir estatísticas sem carregar grafo
+----------------------------------------
+============================================================
+============================================================
+
+1. Carregar grafo do arquivo
+2. Exibir estatísticas e Análise Estrutural
+3. Encontrar caminho mínimo (Dijkstra)
+4. Otimizar rota de entrega (Vizinho Mais Próximo)
+5. Calcular fluxo máximo (Ford-Fulkerson)
+6. Realizar Coloração de Vértices
+7. Listar todos os vértices
+8. Sair
+------------------------------------------------------------
+
+============================================================
+============================================================
+
+1. Carregar grafo do arquivo
+2. Exibir estatísticas e Análise Estrutural
+3. Encontrar caminho mínimo (Dijkstra)
+4. Otimizar rota de entrega (Vizinho Mais Próximo)
+5. Calcular fluxo máximo (Ford-Fulkerson)
+6. Realizar Coloração de Vértices
+7. Listar todos os vértices
+8. Sair
+------------------------------------------------------------
+Encerrando a aplicação. Até logo!
+
+================================================================================
+
+### Teste 5: Caminho Mínimo Depósito -> Entrega Norte 1
+----------------------------------------
+============================================================
+============================================================
+
+1. Carregar grafo do arquivo
+2. Exibir estatísticas e Análise Estrutural
+3. Encontrar caminho mínimo (Dijkstra)
+4. Otimizar rota de entrega (Vizinho Mais Próximo)
+5. Calcular fluxo máximo (Ford-Fulkerson)
+6. Realizar Coloração de Vértices
+7. Listar todos os vértices
+8. Sair
+------------------------------------------------------------
+  - Vértices: 73
+  - Arestas: 219
+
+============================================================
+============================================================
+
+1. Carregar grafo do arquivo
+2. Exibir estatísticas e Análise Estrutural
+3. Encontrar caminho mínimo (Dijkstra)
+4. Otimizar rota de entrega (Vizinho Mais Próximo)
+5. Calcular fluxo máximo (Ford-Fulkerson)
+6. Realizar Coloração de Vértices
+7. Listar todos os vértices
+8. Sair
+------------------------------------------------------------
+============================================================
+CAMINHO MÍNIMO (ALGORITMO DE DIJKSTRA)
+============================================================
+Origem: deposito_central
+Destino: entrega_norte_1
+Distância mínima: 27
+Caminho: deposito_central → coleta_norte_1 → entrega_norte_1
+============================================================
+
+============================================================
+============================================================
+
+1. Carregar grafo do arquivo
+2. Exibir estatísticas e Análise Estrutural
+3. Encontrar caminho mínimo (Dijkstra)
+4. Otimizar rota de entrega (Vizinho Mais Próximo)
+5. Calcular fluxo máximo (Ford-Fulkerson)
+6. Realizar Coloração de Vértices
+7. Listar todos os vértices
+8. Sair
+------------------------------------------------------------
+Encerrando a aplicação. Até logo!
+
+================================================================================
+
+### Teste 6: Caminho Mínimo Coleta Sul 1 -> Entrega Leste 2
+----------------------------------------
+============================================================
+============================================================
+
+1. Carregar grafo do arquivo
+2. Exibir estatísticas e Análise Estrutural
+3. Encontrar caminho mínimo (Dijkstra)
+4. Otimizar rota de entrega (Vizinho Mais Próximo)
+5. Calcular fluxo máximo (Ford-Fulkerson)
+6. Realizar Coloração de Vértices
+7. Listar todos os vértices
+8. Sair
+------------------------------------------------------------
+  - Vértices: 73
+  - Arestas: 219
+
+============================================================
+============================================================
+
+1. Carregar grafo do arquivo
+2. Exibir estatísticas e Análise Estrutural
+3. Encontrar caminho mínimo (Dijkstra)
+4. Otimizar rota de entrega (Vizinho Mais Próximo)
+5. Calcular fluxo máximo (Ford-Fulkerson)
+6. Realizar Coloração de Vértices
+7. Listar todos os vértices
+8. Sair
+------------------------------------------------------------
+============================================================
+CAMINHO MÍNIMO (ALGORITMO DE DIJKSTRA)
+============================================================
+Origem: coleta_sul_1
+Destino: entrega_leste_2
+Distância mínima: 82
+Caminho: coleta_sul_1 → cruzamento_sul_oeste → ponto_estrategico_4 → deposito_central → coleta_leste_1 → entrega_leste_2
+============================================================
+
+============================================================
+============================================================
+
+1. Carregar grafo do arquivo
+2. Exibir estatísticas e Análise Estrutural
+3. Encontrar caminho mínimo (Dijkstra)
+4. Otimizar rota de entrega (Vizinho Mais Próximo)
+5. Calcular fluxo máximo (Ford-Fulkerson)
+6. Realizar Coloração de Vértices
+7. Listar todos os vértices
+8. Sair
+------------------------------------------------------------
+Encerrando a aplicação. Até logo!
+
+================================================================================
+
+### Teste 7: Rota Otimizada (3 pontos)
+----------------------------------------
+============================================================
+============================================================
+
+1. Carregar grafo do arquivo
+2. Exibir estatísticas e Análise Estrutural
+3. Encontrar caminho mínimo (Dijkstra)
+4. Otimizar rota de entrega (Vizinho Mais Próximo)
+5. Calcular fluxo máximo (Ford-Fulkerson)
+6. Realizar Coloração de Vértices
+7. Listar todos os vértices
+8. Sair
+------------------------------------------------------------
+  - Vértices: 73
+  - Arestas: 219
+
+============================================================
+============================================================
+
+1. Carregar grafo do arquivo
+2. Exibir estatísticas e Análise Estrutural
+3. Encontrar caminho mínimo (Dijkstra)
+4. Otimizar rota de entrega (Vizinho Mais Próximo)
+5. Calcular fluxo máximo (Ford-Fulkerson)
+6. Realizar Coloração de Vértices
+7. Listar todos os vértices
+8. Sair
+------------------------------------------------------------
+============================================================
+ROTA OTIMIZADA (VIZINHO MAIS PRÓXIMO)
+============================================================
+Ponto de origem: deposito_central
+Custo total da rota: 121
+Rota: deposito_central → coleta_norte_1 → coleta_norte_2 → entrega_norte_1 → deposito_central
+============================================================
+
+============================================================
+============================================================
+
+1. Carregar grafo do arquivo
+2. Exibir estatísticas e Análise Estrutural
+3. Encontrar caminho mínimo (Dijkstra)
+4. Otimizar rota de entrega (Vizinho Mais Próximo)
+5. Calcular fluxo máximo (Ford-Fulkerson)
+6. Realizar Coloração de Vértices
+7. Listar todos os vértices
+8. Sair
+------------------------------------------------------------
+Encerrando a aplicação. Até logo!
+
+================================================================================
+
+### Teste 8: Rota Otimizada (2 pontos)
+----------------------------------------
+============================================================
+============================================================
+
+1. Carregar grafo do arquivo
+2. Exibir estatísticas e Análise Estrutural
+3. Encontrar caminho mínimo (Dijkstra)
+4. Otimizar rota de entrega (Vizinho Mais Próximo)
+5. Calcular fluxo máximo (Ford-Fulkerson)
+6. Realizar Coloração de Vértices
+7. Listar todos os vértices
+8. Sair
+------------------------------------------------------------
+  - Vértices: 73
+  - Arestas: 219
+
+============================================================
+============================================================
+
+1. Carregar grafo do arquivo
+2. Exibir estatísticas e Análise Estrutural
+3. Encontrar caminho mínimo (Dijkstra)
+4. Otimizar rota de entrega (Vizinho Mais Próximo)
+5. Calcular fluxo máximo (Ford-Fulkerson)
+6. Realizar Coloração de Vértices
+7. Listar todos os vértices
+8. Sair
+------------------------------------------------------------
+============================================================
+ROTA OTIMIZADA (VIZINHO MAIS PRÓXIMO)
+============================================================
+Ponto de origem: deposito_central
+Custo total da rota: 101
+Rota: deposito_central → coleta_sul_1 → entrega_sul_2 → deposito_central
+============================================================
+
+============================================================
+============================================================
+
+1. Carregar grafo do arquivo
+2. Exibir estatísticas e Análise Estrutural
+3. Encontrar caminho mínimo (Dijkstra)
+4. Otimizar rota de entrega (Vizinho Mais Próximo)
+5. Calcular fluxo máximo (Ford-Fulkerson)
+6. Realizar Coloração de Vértices
+7. Listar todos os vértices
+8. Sair
+------------------------------------------------------------
+Encerrando a aplicação. Até logo!
+
+================================================================================
+
+### Teste 9: Fluxo Máximo Depósito -> Entrega Norte 1
+----------------------------------------
+============================================================
+============================================================
+
+1. Carregar grafo do arquivo
+2. Exibir estatísticas e Análise Estrutural
+3. Encontrar caminho mínimo (Dijkstra)
+4. Otimizar rota de entrega (Vizinho Mais Próximo)
+5. Calcular fluxo máximo (Ford-Fulkerson)
+6. Realizar Coloração de Vértices
+7. Listar todos os vértices
+8. Sair
+------------------------------------------------------------
+  - Vértices: 73
+  - Arestas: 219
+
+============================================================
+============================================================
+
+1. Carregar grafo do arquivo
+2. Exibir estatísticas e Análise Estrutural
+3. Encontrar caminho mínimo (Dijkstra)
+4. Otimizar rota de entrega (Vizinho Mais Próximo)
+5. Calcular fluxo máximo (Ford-Fulkerson)
+6. Realizar Coloração de Vértices
+7. Listar todos os vértices
+8. Sair
+------------------------------------------------------------
+============================================================
+FLUXO MÁXIMO (ALGORITMO DE FORD-FULKERSON)
+============================================================
+Origem (fonte): deposito_central
+Destino (sumidouro): entrega_norte_1
+Fluxo máximo: 23
+============================================================
+
+============================================================
+============================================================
+
+1. Carregar grafo do arquivo
+2. Exibir estatísticas e Análise Estrutural
+3. Encontrar caminho mínimo (Dijkstra)
+4. Otimizar rota de entrega (Vizinho Mais Próximo)
+5. Calcular fluxo máximo (Ford-Fulkerson)
+6. Realizar Coloração de Vértices
+7. Listar todos os vértices
+8. Sair
+------------------------------------------------------------
+Encerrando a aplicação. Até logo!
+
+================================================================================
+
+### Teste 10: Fluxo Máximo Coleta Leste 1 -> Entrega Leste 1
+----------------------------------------
+============================================================
+============================================================
+
+1. Carregar grafo do arquivo
+2. Exibir estatísticas e Análise Estrutural
+3. Encontrar caminho mínimo (Dijkstra)
+4. Otimizar rota de entrega (Vizinho Mais Próximo)
+5. Calcular fluxo máximo (Ford-Fulkerson)
+6. Realizar Coloração de Vértices
+7. Listar todos os vértices
+8. Sair
+------------------------------------------------------------
+  - Vértices: 73
+  - Arestas: 219
+
+============================================================
+============================================================
+
+1. Carregar grafo do arquivo
+2. Exibir estatísticas e Análise Estrutural
+3. Encontrar caminho mínimo (Dijkstra)
+4. Otimizar rota de entrega (Vizinho Mais Próximo)
+5. Calcular fluxo máximo (Ford-Fulkerson)
+6. Realizar Coloração de Vértices
+7. Listar todos os vértices
+8. Sair
+------------------------------------------------------------
+============================================================
+FLUXO MÁXIMO (ALGORITMO DE FORD-FULKERSON)
+============================================================
+Origem (fonte): coleta_leste_1
+Destino (sumidouro): entrega_leste_1
+Fluxo máximo: 20
+============================================================
+
+============================================================
+============================================================
+
+1. Carregar grafo do arquivo
+2. Exibir estatísticas e Análise Estrutural
+3. Encontrar caminho mínimo (Dijkstra)
+4. Otimizar rota de entrega (Vizinho Mais Próximo)
+5. Calcular fluxo máximo (Ford-Fulkerson)
+6. Realizar Coloração de Vértices
+7. Listar todos os vértices
+8. Sair
+------------------------------------------------------------
+Encerrando a aplicação. Até logo!
+
+================================================================================
+
+### Teste 11: Coloração de Vértices
+----------------------------------------
+============================================================
+============================================================
+
+1. Carregar grafo do arquivo
+2. Exibir estatísticas e Análise Estrutural
+3. Encontrar caminho mínimo (Dijkstra)
+4. Otimizar rota de entrega (Vizinho Mais Próximo)
+5. Calcular fluxo máximo (Ford-Fulkerson)
+6. Realizar Coloração de Vértices
+7. Listar todos os vértices
+8. Sair
+------------------------------------------------------------
+  - Vértices: 73
+  - Arestas: 219
+
+============================================================
+============================================================
+
+1. Carregar grafo do arquivo
+2. Exibir estatísticas e Análise Estrutural
+3. Encontrar caminho mínimo (Dijkstra)
+4. Otimizar rota de entrega (Vizinho Mais Próximo)
+5. Calcular fluxo máximo (Ford-Fulkerson)
+6. Realizar Coloração de Vértices
+7. Listar todos os vértices
+8. Sair
+------------------------------------------------------------
+============================================================
+COLORAÇÃO DE VÉRTICES (HEURÍSTICA SEQUENCIAL)
+============================================================
+Número Cromático Estimado (X(G)): 5
+
+Partições de Cores (Amostra):
+Cor 1: 20 vértices (deposito_central, cruzamento_sul_leste, cruzamento_oeste_central...)
+Cor 2: 17 vértices (cruzamento_centro_leste, cruzamento_centro_oeste, centro_distribuicao_oeste...)
+Cor 3: 17 vértices (cruzamento_norte_central, cruzamento_leste_central, cruzamento_sul_oeste...)
+Cor 4: 14 vértices (ponto_estrategico_1, centro_distribuicao_leste, ponto_estrategico_4...)
+Cor 5: 5 vértices (ponto_estrategico_3, centro_distribuicao_sul, centro_distribuicao_norte...)
+============================================================
+
+============================================================
+============================================================
+
+1. Carregar grafo do arquivo
+2. Exibir estatísticas e Análise Estrutural
+3. Encontrar caminho mínimo (Dijkstra)
+4. Otimizar rota de entrega (Vizinho Mais Próximo)
+5. Calcular fluxo máximo (Ford-Fulkerson)
+6. Realizar Coloração de Vértices
+7. Listar todos os vértices
+8. Sair
+------------------------------------------------------------
+Encerrando a aplicação. Até logo!
+
+================================================================================
+
+### Teste 12: Tentar coloração sem carregar grafo
+----------------------------------------
+============================================================
+============================================================
+
+1. Carregar grafo do arquivo
+2. Exibir estatísticas e Análise Estrutural
+3. Encontrar caminho mínimo (Dijkstra)
+4. Otimizar rota de entrega (Vizinho Mais Próximo)
+5. Calcular fluxo máximo (Ford-Fulkerson)
+6. Realizar Coloração de Vértices
+7. Listar todos os vértices
+8. Sair
+------------------------------------------------------------
+
+============================================================
+============================================================
+
+1. Carregar grafo do arquivo
+2. Exibir estatísticas e Análise Estrutural
+3. Encontrar caminho mínimo (Dijkstra)
+4. Otimizar rota de entrega (Vizinho Mais Próximo)
+5. Calcular fluxo máximo (Ford-Fulkerson)
+6. Realizar Coloração de Vértices
+7. Listar todos os vértices
+8. Sair
+------------------------------------------------------------
+Encerrando a aplicação. Até logo!
+
+================================================================================
+
+### Teste 13: Listar todos os vértices
+----------------------------------------
+============================================================
+============================================================
+
+1. Carregar grafo do arquivo
+2. Exibir estatísticas e Análise Estrutural
+3. Encontrar caminho mínimo (Dijkstra)
+4. Otimizar rota de entrega (Vizinho Mais Próximo)
+5. Calcular fluxo máximo (Ford-Fulkerson)
+6. Realizar Coloração de Vértices
+7. Listar todos os vértices
+8. Sair
+------------------------------------------------------------
+  - Vértices: 73
+  - Arestas: 219
+
+============================================================
+============================================================
+
+1. Carregar grafo do arquivo
+2. Exibir estatísticas e Análise Estrutural
+3. Encontrar caminho mínimo (Dijkstra)
+4. Otimizar rota de entrega (Vizinho Mais Próximo)
+5. Calcular fluxo máximo (Ford-Fulkerson)
+6. Realizar Coloração de Vértices
+7. Listar todos os vértices
+8. Sair
+------------------------------------------------------------
+============================================================
+LISTA DE VÉRTICES DO GRAFO
+============================================================
+Total: 73 vértices
+
+  1. centro_distribuicao_leste
+  2. centro_distribuicao_norte
+  3. centro_distribuicao_oeste
+  4. centro_distribuicao_sul
+  5. coleta_centro_1
+  6. coleta_centro_2
+  7. coleta_centro_3
+  8. coleta_centro_4
+  9. coleta_centro_5
+ 10. coleta_leste_1
+ 11. coleta_leste_2
+ 12. coleta_leste_3
+ 13. coleta_leste_4
+ 14. coleta_leste_5
+ 15. coleta_norte_1
+ 16. coleta_norte_2
+ 17. coleta_norte_3
+ 18. coleta_norte_4
+ 19. coleta_norte_5
+ 20. coleta_oeste_1
+ 21. coleta_oeste_2
+ 22. coleta_oeste_3
+ 23. coleta_oeste_4
+ 24. coleta_oeste_5
+ 25. coleta_sul_1
+ 26. coleta_sul_2
+ 27. coleta_sul_3
+ 28. coleta_sul_4
+ 29. coleta_sul_5
+ 30. cruzamento_centro_leste
+ 31. cruzamento_centro_oeste
+ 32. cruzamento_leste_central
+ 33. cruzamento_norte_central
+ 34. cruzamento_norte_leste
+ 35. cruzamento_norte_oeste
+ 36. cruzamento_oeste_central
+ 37. cruzamento_sul_leste
+ 38. cruzamento_sul_oeste
+ 39. deposito_central
+ 40. entrega_centro_1
+ 41. entrega_centro_2
+ 42. entrega_centro_3
+ 43. entrega_centro_4
+ 44. entrega_centro_5
+ 45. entrega_centro_6
+ 46. entrega_leste_1
+ 47. entrega_leste_2
+ 48. entrega_leste_3
+ 49. entrega_leste_4
+ 50. entrega_leste_5
+ 51. entrega_leste_6
+ 52. entrega_norte_1
+ 53. entrega_norte_2
+ 54. entrega_norte_3
+ 55. entrega_norte_4
+ 56. entrega_norte_5
+ 57. entrega_norte_6
+ 58. entrega_oeste_1
+ 59. entrega_oeste_2
+ 60. entrega_oeste_3
+ 61. entrega_oeste_4
+ 62. entrega_oeste_5
+ 63. entrega_oeste_6
+ 64. entrega_sul_1
+ 65. entrega_sul_2
+ 66. entrega_sul_3
+ 67. entrega_sul_4
+ 68. entrega_sul_5
+ 69. entrega_sul_6
+ 70. ponto_estrategico_1
+ 71. ponto_estrategico_2
+ 72. ponto_estrategico_3
+ 73. ponto_estrategico_4
+============================================================
+
+============================================================
+============================================================
+
+1. Carregar grafo do arquivo
+2. Exibir estatísticas e Análise Estrutural
+3. Encontrar caminho mínimo (Dijkstra)
+4. Otimizar rota de entrega (Vizinho Mais Próximo)
+5. Calcular fluxo máximo (Ford-Fulkerson)
+6. Realizar Coloração de Vértices
+7. Listar todos os vértices
+8. Sair
+------------------------------------------------------------
+Encerrando a aplicação. Até logo!
+
+================================================================================
+
+### Teste 14: Tentar listar sem carregar grafo
+----------------------------------------
+============================================================
+============================================================
+
+1. Carregar grafo do arquivo
+2. Exibir estatísticas e Análise Estrutural
+3. Encontrar caminho mínimo (Dijkstra)
+4. Otimizar rota de entrega (Vizinho Mais Próximo)
+5. Calcular fluxo máximo (Ford-Fulkerson)
+6. Realizar Coloração de Vértices
+7. Listar todos os vértices
+8. Sair
+------------------------------------------------------------
+
+============================================================
+============================================================
+
+1. Carregar grafo do arquivo
+2. Exibir estatísticas e Análise Estrutural
+3. Encontrar caminho mínimo (Dijkstra)
+4. Otimizar rota de entrega (Vizinho Mais Próximo)
+5. Calcular fluxo máximo (Ford-Fulkerson)
+6. Realizar Coloração de Vértices
+7. Listar todos os vértices
+8. Sair
+------------------------------------------------------------
+Encerrando a aplicação. Até logo!
+
+================================================================================
+
