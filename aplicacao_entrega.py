@@ -1,19 +1,22 @@
 """
-Aplicação de Otimização Logística de Entrega de Encomendas
-Disciplina: Teoria dos Grafos (2026/1)
-Universidade Presbiteriana Mackenzie
+PROJETO DE TEORIA DOS GRAFOS - PARTE 3
+Título: Aplicação de Otimização Logística de Entrega de Encomendas
 
-Aluno: Milton Almeida Leoncio | RA: 10416764
+INTEGRANTES DO GRUPO:
+- Milton Almeida Leoncio (RA: 10416764)
 
-Técnicas de Teoria dos Grafos Aplicadas:
-1. Caminhos Mínimos (Algoritmo de Dijkstra)
-2. Problema do Caixeiro Viajante (Heurística do Vizinho Mais Próximo)
-3. Fluxo Máximo (Algoritmo de Ford-Fulkerson)
+SÍNTESE DO CONTEÚDO:
+Este arquivo contém a implementação de uma aplicação prática para otimização logística 
+de entregas em uma área metropolitana. Utiliza algoritmos de caminhos mínimos (Dijkstra), 
+fluxo máximo (Ford-Fulkerson), heurística para o Problema do Caixeiro Viajante (Vizinho 
+Mais Próximo) e análises estruturais como coloração e classificação euleriana.
+
 """
 
 import heapq
 import sys
 from collections import defaultdict, deque
+from typing import Dict, List, Tuple, Set
 
 class GrafoEntrega:
     """Classe que representa o grafo de entrega de encomendas."""
